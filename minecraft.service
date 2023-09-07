@@ -1,0 +1,31 @@
+[Unit]
+
+Description=Minecraft Server
+
+After=network.target
+
+[Service]
+
+User=minecraft
+
+Nice=1
+
+KillMode=none
+
+SuccessExitStatus=0 1
+
+ProtectHome=true
+
+ProtectSystem=full
+
+PrivateDevices=true
+
+NoNewPrivileges=true
+
+WorkingDirectory=/opt/minecraft/server
+
+ExecStart=/usr/bin/java -Xmx4G -Xms1024M -jar minecraft_server.1.20.1.jar nogui
+
+[Install]
+
+WantedBy=multi-user.target
